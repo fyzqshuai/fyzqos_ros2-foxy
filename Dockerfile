@@ -117,6 +117,27 @@ RUN python3 -m pip install --no-cache-dir \
     pyzmq==25.0.0 \
     jupyterlab==3.6.1
 
+# 安装 qrcode pyzbar
+RUN python3 -m pip install --no-cache-dir \
+    qrcode \
+    pyzbar
+
+# 安装 libzbar-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libzbar-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装标定的功能包camera_calibration
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-foxy-camera-calibration* \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 pcl-tools 用于 pcl_viewer 命令
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pcl-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+
 
 # 添加环境变量
 RUN echo "source /opt/ros/foxy/setup.bash" >> /root/.bashrc
