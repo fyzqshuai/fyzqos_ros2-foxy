@@ -88,7 +88,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 
-# 安装亚博智能驱动库
+# 安装 Rosmaster_Lib 驱动库
 COPY py_install_V3.3.9.zip /tmp/
 
 RUN cd /tmp && \
@@ -97,6 +97,16 @@ RUN cd /tmp && \
     python3 setup.py install && \
     cd / && \
     rm -rf /tmp/py_install /tmp/py_install_V3.3.9.zip
+
+# 安装 Speech_Lib 驱动库
+COPY py_install_V0.0.1.zip /tmp/
+
+RUN cd /tmp && \
+    unzip py_install_V0.0.1.zip && \
+    cd py_install && \
+    python3 setup.py install && \
+    cd / && \
+    rm -rf /tmp/py_install /tmp/py_install_V0.0.1.zip
 
 # 安装用于串口通信（Serial）的 Python 库
 RUN python3 -m pip install --no-cache-dir \
