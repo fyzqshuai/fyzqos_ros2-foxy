@@ -161,6 +161,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgoogle-glog-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# 安装 rosbridge-suite 和 rosbridge-test-msgs
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-foxy-rosbridge-suite \
+    ros-foxy-rosbridge-test-msgs \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 ros-foxy-usb-cam
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-foxy-usb-cam \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 ros-foxy-async-web-server-cpp
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-foxy-async-web-server-cpp \
+    && rm -rf /var/lib/apt/lists/*
+    
+    
+
 
 
 # 添加环境变量
