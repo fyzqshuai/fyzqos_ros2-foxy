@@ -147,6 +147,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pcl-tools \
     && rm -rf /var/lib/apt/lists/*
 
+# 安装 libuvc
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libuvc-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 dlib
+RUN python3 -m pip install --no-cache-dir \
+    dlib==19.24.9
+    
+# 安装 libgoogle-glog-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgoogle-glog-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 
 
 # 添加环境变量
