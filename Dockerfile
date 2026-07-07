@@ -176,8 +176,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-async-web-server-cpp \
     && rm -rf /var/lib/apt/lists/*
-    
-    
+
+# 安装 flask
+RUN python3 -m pip install --no-cache-dir \
+    flask
+
+# 安装 python3-gevent
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-gevent \
+    && rm -rf /var/lib/apt/lists/*   
+
+# 安装 XXX
+
+
+
+
 
 
 
