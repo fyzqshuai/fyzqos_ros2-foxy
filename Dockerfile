@@ -186,9 +186,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-gevent \
     && rm -rf /var/lib/apt/lists/*   
 
+# 安装 ipywidgets，用于jupyter网页
+RUN python3 -m pip install --no-cache-dir \
+    ipywidgets
+
+# 安装 jupyterlab_widgets，用于jupyter网页
+RUN python3 -m pip install --no-cache-dir \
+    jupyterlab_widgets
+
 # 安装 XXX
-
-
 
 
 
