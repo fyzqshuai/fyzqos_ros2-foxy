@@ -194,6 +194,15 @@ RUN python3 -m pip install --no-cache-dir \
 RUN python3 -m pip install --no-cache-dir \
     jupyterlab_widgets
 
+# 安装 ros2 功能包
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-foxy-xacro \
+    ros-foxy-joint-state-publisher \
+    ros-foxy-joint-state-publisher-gui \
+    ros-foxy-imu-filter-madgwick \
+    ros-foxy-robot-localization \
+    && rm -rf /var/lib/apt/lists/* 
+
 # 安装 XXX
 
 
