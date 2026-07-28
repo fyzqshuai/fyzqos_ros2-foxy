@@ -203,6 +203,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-robot-localization \
     && rm -rf /var/lib/apt/lists/* 
 
+# 安装 pykdl
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-pykdl \
+    && rm -rf /var/lib/apt/lists/* 
+
 # 安装 XXX
 
 
