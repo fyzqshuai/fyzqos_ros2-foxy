@@ -126,6 +126,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python3 -m pip install --no-cache-dir \
     pyzmq==25.0.0 \
     jupyterlab==3.6.1
+    
+# 安装 ipywidgets，用于jupyter网页
+RUN python3 -m pip install --no-cache-dir \
+    ipywidgets
+
+# 安装 jupyterlab_widgets，用于jupyter网页
+RUN python3 -m pip install --no-cache-dir \
+    jupyterlab_widgets
 
 # 安装 qrcode pyzbar
 RUN python3 -m pip install --no-cache-dir \
@@ -135,11 +143,6 @@ RUN python3 -m pip install --no-cache-dir \
 # 安装 libzbar-dev
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libzbar-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# 安装标定的功能包camera_calibration
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-foxy-camera-calibration* \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装 pcl-tools 用于 pcl_viewer 命令
@@ -161,22 +164,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgoogle-glog-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# 安装 rosbridge-suite 和 rosbridge-test-msgs
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-foxy-rosbridge-suite \
-    ros-foxy-rosbridge-test-msgs \
-    && rm -rf /var/lib/apt/lists/*
-
-# 安装 ros-foxy-usb-cam
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-foxy-usb-cam \
-    && rm -rf /var/lib/apt/lists/*
-
-# 安装 ros-foxy-async-web-server-cpp
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-foxy-async-web-server-cpp \
-    && rm -rf /var/lib/apt/lists/*
-
 # 安装 flask
 RUN python3 -m pip install --no-cache-dir \
     flask
@@ -186,13 +173,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-gevent \
     && rm -rf /var/lib/apt/lists/*   
 
-# 安装 ipywidgets，用于jupyter网页
-RUN python3 -m pip install --no-cache-dir \
-    ipywidgets
+# 安装 pykdl
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-pykdl \
+    && rm -rf /var/lib/apt/lists/* 
 
-# 安装 jupyterlab_widgets，用于jupyter网页
-RUN python3 -m pip install --no-cache-dir \
-    jupyterlab_widgets
+# 安装 XXX
+
+
 
 # 安装 ros2 功能包
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -202,20 +190,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-imu-filter-madgwick \
     ros-foxy-robot-localization \
     ros-foxy-nav2-map-server \
+    ros-foxy-cartographer-ros \
+    ros-foxy-camera-calibration* \
+    ros-foxy-usb-cam \
+    ros-foxy-async-web-server-cpp \
+    ros-foxy-rosbridge-suite \
+    ros-foxy-rosbridge-test-msgs \
     && rm -rf /var/lib/apt/lists/* 
-
-# 安装 pykdl
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3-pykdl \
-    && rm -rf /var/lib/apt/lists/* 
-
-
-
-# 安装 XXX
-
-
-
-
 
 # 添加环境变量
 RUN echo "source /opt/ros/foxy/setup.bash" >> /root/.bashrc
