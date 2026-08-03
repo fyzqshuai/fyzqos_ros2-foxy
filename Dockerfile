@@ -196,6 +196,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-async-web-server-cpp \
     ros-foxy-rosbridge-suite \
     ros-foxy-rosbridge-test-msgs \
+    ros-foxy-navigation2 \
+    ros-foxy-nav2-bringup \
+    ros-foxy-libg2o \
     && rm -rf /var/lib/apt/lists/* 
 
 # 添加环境变量
