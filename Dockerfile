@@ -178,6 +178,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pykdl \
     && rm -rf /var/lib/apt/lists/* 
 
+# 安装 libusb-1.0-0-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libusb-1.0-0-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 nlohmann-json3-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nlohmann-json3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # 安装 XXX
 
 
