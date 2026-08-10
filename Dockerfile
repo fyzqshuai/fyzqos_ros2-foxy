@@ -187,6 +187,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nlohmann-json3-dev \
     && rm -rf /var/lib/apt/lists/*
+    
+# 安装 python3-tk
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-tk \
+    && rm -rf /var/lib/apt/lists/*
 
 # 安装 XXX
 
