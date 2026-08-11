@@ -193,9 +193,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-tk \
     && rm -rf /var/lib/apt/lists/*
 
-# 安装 mediapipe
+# 安装 mediapipe，并去掉它拉上来的 OpenCV 5，继续用 apt 的 python3-opencv
 RUN python3 -m pip install --no-cache-dir \
-    "mediapipe==0.10.9"
+    "mediapipe==0.10.9" \
+    && python3 -m pip uninstall -y opencv-contrib-python
 
 # 安装 XXX
 
