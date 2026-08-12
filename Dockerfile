@@ -198,6 +198,16 @@ RUN python3 -m pip install --no-cache-dir \
     "mediapipe==0.10.9" \
     && python3 -m pip uninstall -y opencv-contrib-python
 
+# 构建安装 Pangolin v0.6 到 /usr/local（ORB-SLAM2 依赖）
+RUN git clone --branch v0.6 https://github.com/stevenlovegrove/Pangolin.git /opt/Pangolin-0.6 \
+ && mkdir -p /opt/Pangolin-0.6/build \
+ && cd /opt/Pangolin-0.6/build \
+ && cmake .. \
+ && make -j2 \
+ && make install \
+ && ldconfig \
+ && rm -rf /opt/Pangolin-0.6
+
 # 安装 XXX
 
 
