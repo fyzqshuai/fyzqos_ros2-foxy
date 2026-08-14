@@ -220,6 +220,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-nav2-bringup \
     ros-foxy-libg2o \
     ros-foxy-image-publisher \
+    ros-foxy-pcl-ros \
     && rm -rf /var/lib/apt/lists/* 
 
 # 添加环境变量
