@@ -221,7 +221,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-libg2o \
     ros-foxy-image-publisher \
     ros-foxy-pcl-ros \
+    ros-foxy-octomap-rviz-plugins \
     && rm -rf /var/lib/apt/lists/* 
+
+
 
 # 添加环境变量
 RUN echo "source /opt/ros/foxy/setup.bash" >> /root/.bashrc
