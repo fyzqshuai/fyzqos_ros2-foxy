@@ -222,6 +222,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-image-publisher \
     ros-foxy-pcl-ros \
     ros-foxy-octomap-rviz-plugins \
+    ros-foxy-octomap-server \
     && rm -rf /var/lib/apt/lists/* 
 
 
