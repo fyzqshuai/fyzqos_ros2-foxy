@@ -223,6 +223,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-pcl-ros \
     ros-foxy-octomap-rviz-plugins \
     ros-foxy-octomap-server \
+    ros-foxy-rtabmap-ros \
     && rm -rf /var/lib/apt/lists/* 
 
 
